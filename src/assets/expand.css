@@ -5,6 +5,9 @@
 .flex1 {
 	flex:1;
 }
+.flex-wrap {
+	flex-wrap: wrap;
+}
 .block {
 	display: block;
 }

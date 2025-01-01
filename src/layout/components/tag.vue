@@ -67,7 +67,9 @@ const closeTag = (path, index) => {
 };
 
 // 刷新
-const reload = () => {};
+const reload = () => {
+  tagStore.reload()
+};
 
 // 关闭除首页外其他窗口
 const closeOther = () => {

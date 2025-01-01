@@ -1,4 +1,4 @@
-import { reactive } from 'vue'
+import { nextTick, reactive, ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useRoute } from 'vue-router'
 
@@ -6,6 +6,7 @@ import { useRoute } from 'vue-router'
 
 export const useTagStore = defineStore('tagList', () => {
   const route = useRoute()
+  const alive = ref(true)
   const tagList = reactive([
     {
       name: '/dashboard',
@@ -42,5 +43,12 @@ export const useTagStore = defineStore('tagList', () => {
     tagList.length = 1
   }
 
-  return { addTagList, deleteTagList, closeTagOther, closeAllTag, tagList }
+  function reload() {
+    alive.value = false
+    nextTick(() => {
+      alive.value = true
+    })
+  }
+
+  return { addTagList, deleteTagList, closeTagOther, closeAllTag, tagList, alive, reload }
 })

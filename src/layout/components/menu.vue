@@ -1,6 +1,6 @@
 <template>
   <div class="logo-container flex-center">
-    <img class="logo-icon" src="../../../../public/img/logo.png" />
+    <img class="logo-icon" src="/img/logo.png" />
     <text v-if="!isCollapse">后台管理平台</text>
   </div>
   <el-menu
