@@ -6,7 +6,7 @@
   
   <script setup>
   import CustomForm from "@/components/CustomForm/index.vue";
-  import {editFormConfig} from '../tableConfig.js'
+  import {editFormConfig} from '../../views/TableTemplate/tableConfig.js'
 import { ref, watch } from "vue";
   
   const prop = defineProps({

@@ -25,7 +25,7 @@
 <script setup>
 import CustomTable from "@/components/CustomTable/index.vue";
 import CustomSearch from "@/components/CustomSearch/index.vue";
-import EditDialog from "./components/EditDialog.vue";
+import EditDialog from "@/components/CustomEditDialog/index.vue";
 import { ref } from "vue";
 import { tableConfig, searchConfig } from "./tableConfig";
 
