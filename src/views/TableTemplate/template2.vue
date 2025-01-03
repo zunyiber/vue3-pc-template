@@ -6,17 +6,22 @@
       @updateQueryData="updateQueryData"
     >
       <el-button type="success" plain @click="exportPDF">导出pdf</el-button>
+      <el-button type="warning" plain @click="printPDF">打印pdf</el-button>
     </CustomSearch>
-    <CustomTable
-      :tableConfig="tableConfig2"
-      :tableData="tableData"
-      :total="total"
-      @updateQueryData="updateQueryData"
-      ><template #handle="row">
-        <el-text v-if="row.row.pass" class="mx-1" type="primary">合格</el-text>
-        <el-text v-else class="mx-1" type="danger">不合格</el-text>
-      </template>
-    </CustomTable>
+    <div id="table" class="w-p-100">
+        <CustomTable
+          :tableConfig="tableConfig2"
+          :tableData="tableData"
+          :pagination="false"
+          @updateQueryData="updateQueryData"
+          ><template #handle="row">
+            <el-text v-if="row.row.pass" class="mx-1" type="primary"
+              >合格</el-text
+            >
+            <el-text v-else class="mx-1" type="danger">不合格</el-text>
+          </template>
+        </CustomTable>
+    </div>
   </div>
 </template>
   
@@ -25,8 +30,9 @@ import CustomTable from "@/components/CustomTable/index.vue";
 import CustomSearch from "@/components/CustomSearch/index.vue";
 import { ref } from "vue";
 import { tableConfig2, searchConfig2 } from "./tableConfig";
-import {ElMessage } from 'element-plus'
-const total = ref(4);
+import { ElMessage } from "element-plus";
+import { downloadPdf } from "@/utils/htmlToPdf";
+import printToPdf from "@/utils/printToPdf.js"
 const tableData = [
   {
     date: "2016-05-04",
@@ -72,12 +78,13 @@ const updateQueryData = (params, bool) => {
 
 // 导出PDF
 const exportPDF = () => {
-    ElMessage({
-        type: 'info',
-        message: '该功能正在开发中',
-      })
-}
+  downloadPdf("table", "表格");
+};
 
+// 打印PDF
+const printPDF = () => {
+  printToPdf('table')
+}
 </script>
   
   <style scoped>

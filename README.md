@@ -12,7 +12,8 @@
 
 ## 在线示例
 
-[vue3 pc template](部署中，后续更新)
+[vue3-pc-template 演示地址1](https://vue3-pc-template.vercel.app/login)
+[vue3-pc-template 演示地址2](https://env-00jxt0stsnl3-static.normal.cloudstatic.cn/)
 
 
 ## 准备
@@ -67,6 +68,8 @@
     - tagList.js // 多页面标签状态管理
   - utils // 通用工具
     - getData.js // 模拟异步获取数据
+    - htmlToPdf.js // 页面转pdf方法
+    - printToPdf.js // 目标元素打印方法
   - views // 页面
     - Dashboard // 首页
     - FormTemplate // 表单示例

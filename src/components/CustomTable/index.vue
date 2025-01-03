@@ -1,7 +1,7 @@
 <template>
   <el-table
     :data="tableData"
-    style="width: 100%"
+    style="width: 100%;"
     :border="border"
     :highlight-current-row="true"
     @selection-change="handleSelectionChange"
